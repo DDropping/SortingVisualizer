@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 
 const Container = styled.div``;
+export const Bar = styled.div``;
 
 const Index = ({ size }) => {
   const [array, setArray] = useState([]);
