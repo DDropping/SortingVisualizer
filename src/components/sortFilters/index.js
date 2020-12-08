@@ -1,13 +1,35 @@
 import React from "react";
-import { Button } from "antd";
+import { Slider } from "antd";
+import styled from "styled-components";
 
-const index = () => {
+export const Container = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const Title = styled.div`
+  font-size: 1.1rem;
+`;
+
+export const FilterContainer = styled.div`
+  text-align: center;
+`;
+
+const index = ({ setArrayLength }) => {
   return (
-    <div>
-      Enter Sort Filters:
-      <div>Array Length:</div>
-      <Button>Click</Button>
-    </div>
+    <Container>
+      <FilterContainer>
+        <Title>Array Size: </Title>
+        <Slider
+          defaultValue={50}
+          min={5}
+          max={100}
+          onChange={(value) => setArrayLength(value)}
+          style={{ width: "200px" }}
+        />
+      </FilterContainer>
+    </Container>
   );
 };
 

@@ -18,7 +18,7 @@ const Home = () => {
     <div>
       <Navbar />
       <Container>
-        <SortFilters />
+        <SortFilters setArrayLength={setArrayLength} /> {arrayLength}
         <MergeSort size={arrayLength} />
       </Container>
     </div>
