@@ -1,27 +1,19 @@
-import React, { useState, useEffect } from "react";
-import styled from "styled-components";
+import React from "react";
 
-const Container = styled.div``;
-export const Bar = styled.div``;
+import { Container, ColumnWrapper, Column } from "./style";
 
-const Index = ({ size }) => {
-  const [array, setArray] = useState([]);
-
-  const resetArray = () => {
-    setArray([]);
-    for (let i = 0; i < size; i++) {
-      array.push(Math.floor(Math.random() * (100 - 5 + 1) + 5));
-    }
-  };
-
-  useEffect(() => {
-    resetArray();
-    console.log(array);
-  }, []);
-
+const Index = ({ array, size }) => {
   return (
     <Container>
-      <div>Merge sort</div>
+      {array.map((value, index) => {
+        let width = 100 / size;
+        return (
+          <ColumnWrapper key={index} height={value} width={width}>
+            <div style={{ flex: 1 }} />
+            <Column key={index} height={value} width={width} />
+          </ColumnWrapper>
+        );
+      })}
     </Container>
   );
 };

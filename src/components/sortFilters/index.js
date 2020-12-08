@@ -1,5 +1,5 @@
 import React from "react";
-import { Slider } from "antd";
+import { Button, Slider } from "antd";
 import styled from "styled-components";
 
 export const Container = styled.div`
@@ -14,13 +14,17 @@ export const Title = styled.div`
 
 export const FilterContainer = styled.div`
   text-align: center;
+  margin: 0 25px;
 `;
 
-const index = ({ setArrayLength }) => {
+const index = ({ arrayLength, setArrayLength, resetArray }) => {
   return (
     <Container>
       <FilterContainer>
-        <Title>Array Size: </Title>
+        <Button onClick={resetArray}>Reset Array</Button>
+      </FilterContainer>
+      <FilterContainer>
+        <Title>Array Size: {arrayLength} </Title>
         <Slider
           defaultValue={50}
           min={5}
