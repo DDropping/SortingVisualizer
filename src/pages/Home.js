@@ -4,6 +4,9 @@ import styled from "styled-components";
 import Navbar from "../components/navbar";
 import SortFilters from "../components/sortFilters";
 import MergeSort from "../components/mergeSort";
+import InsertionSort from "../components/insertionSort";
+import BubbleSort from "../components/bubbleSort";
+import QuickSort from "../components/quickSort";
 
 export const Container = styled.div`
   max-width: 1200px;
@@ -12,7 +15,8 @@ export const Container = styled.div`
 `;
 
 const Home = () => {
-  const [arrayLength, setArrayLength] = useState(50);
+  const [currentAlgo, setCurrentAlgo] = useState("insertion");
+  const [arrayLength, setArrayLength] = useState(10);
   const [array, setArray] = useState([]);
 
   const resetArray = () => {
@@ -31,14 +35,25 @@ const Home = () => {
 
   return (
     <div>
-      <Navbar />
+      <Navbar setCurrentAlgo={setCurrentAlgo} />
       <Container>
         <SortFilters
           arrayLength={arrayLength}
           setArrayLength={setArrayLength}
           resetArray={resetArray}
         />
-        <MergeSort array={array} size={arrayLength} />
+        {currentAlgo === "insertion" && (
+          <InsertionSort array={array} size={arrayLength} />
+        )}
+        {currentAlgo === "merge" && (
+          <MergeSort array={array} size={arrayLength} />
+        )}
+        {currentAlgo === "bubble" && (
+          <BubbleSort array={array} size={arrayLength} />
+        )}
+        {currentAlgo === "quick" && (
+          <QuickSort array={array} size={arrayLength} />
+        )}
       </Container>
     </div>
   );

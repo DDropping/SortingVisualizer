@@ -27,15 +27,19 @@ export const SortItem = styled.div`
   }
 `;
 
-const index = () => {
+const index = ({ setCurrentAlgo }) => {
   return (
     <Container>
       <div>SortVisualizer</div>
       <SortContainer>
-        <SortItem>Insertion Sort</SortItem>
-        <SortItem>Merge Sort</SortItem>
-        <SortItem>Quick Sort</SortItem>
-        <SortItem>Radix Sort</SortItem>
+        <SortItem onClick={() => setCurrentAlgo("bubble")}>
+          Bubble Sort
+        </SortItem>
+        <SortItem onClick={() => setCurrentAlgo("insertion")}>
+          Insertion Sort
+        </SortItem>
+        <SortItem onClick={() => setCurrentAlgo("merge")}>Merge Sort</SortItem>
+        <SortItem onClick={() => setCurrentAlgo("quick")}>Quick Sort</SortItem>
       </SortContainer>
     </Container>
   );

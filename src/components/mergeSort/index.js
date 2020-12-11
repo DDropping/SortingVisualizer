@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
+import { Button } from "antd";
 
 import { Container, ColumnWrapper, Column } from "./style";
+import { mergeSortHandler } from "../../algorithms/mergeSort";
 
 const Index = ({ array, size }) => {
+  console.log(array);
+  const [arr, setArr] = useState(array);
+  //const sortAnimations = mergeSortHandler(arr);
   return (
     <Container>
       {array.map((value, index) => {
