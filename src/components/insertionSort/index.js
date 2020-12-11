@@ -4,7 +4,7 @@ import { Button } from "antd";
 import { Container, ColumnWrapper, Column } from "./style";
 import { insertionHandler } from "../../algorithms/insertionSort";
 
-const Index = ({ array, size }) => {
+const Index = ({ array, size, sortSpeed }) => {
   const [displayArray, setDisplayArray] = useState([...array]);
   const [currentIndexes, setCurrentIndexes] = useState([]);
   const animationsArray = insertionHandler(displayArray);
@@ -23,7 +23,7 @@ const Index = ({ array, size }) => {
         if (animationsArray[i].swap) {
           setDisplayArray(animationsArray[i].array);
         }
-      }, 25 * i);
+      }, (1010 - sortSpeed * 10) * i);
     }
   };
 

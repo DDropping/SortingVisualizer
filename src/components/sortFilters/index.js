@@ -17,7 +17,13 @@ export const FilterContainer = styled.div`
   margin: 0 25px;
 `;
 
-const index = ({ arrayLength, setArrayLength, resetArray }) => {
+const index = ({
+  arrayLength,
+  setArrayLength,
+  resetArray,
+  sortSpeed,
+  setSortSpeed,
+}) => {
   return (
     <Container>
       <FilterContainer>
@@ -30,6 +36,16 @@ const index = ({ arrayLength, setArrayLength, resetArray }) => {
           min={5}
           max={100}
           onChange={(value) => setArrayLength(value)}
+          style={{ width: "200px" }}
+        />
+      </FilterContainer>
+      <FilterContainer>
+        <Title>Sort Speed: {sortSpeed} </Title>
+        <Slider
+          defaultValue={50}
+          min={5}
+          max={100}
+          onChange={(value) => setSortSpeed(value)}
           style={{ width: "200px" }}
         />
       </FilterContainer>

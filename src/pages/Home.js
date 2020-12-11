@@ -17,6 +17,7 @@ export const Container = styled.div`
 const Home = () => {
   const [currentAlgo, setCurrentAlgo] = useState("insertion");
   const [arrayLength, setArrayLength] = useState(10);
+  const [sortSpeed, setSortSpeed] = useState(50);
   const [array, setArray] = useState([]);
 
   const resetArray = () => {
@@ -41,9 +42,15 @@ const Home = () => {
           arrayLength={arrayLength}
           setArrayLength={setArrayLength}
           resetArray={resetArray}
+          sortSpeed={sortSpeed}
+          setSortSpeed={setSortSpeed}
         />
         {currentAlgo === "insertion" && (
-          <InsertionSort array={array} size={arrayLength} />
+          <InsertionSort
+            array={array}
+            size={arrayLength}
+            sortSpeed={sortSpeed}
+          />
         )}
         {currentAlgo === "merge" && (
           <MergeSort array={array} size={arrayLength} />
