@@ -13,7 +13,12 @@ export const ColumnWrapper = styled.div`
 `;
 
 export const Column = styled.div`
-  background-color: turquoise;
+  background-color: ${({ highlightedIndex, index }) =>
+    highlightedIndex.includes(index) ? "red" : "turquoise"};
+  ${({ replaceIndex }) =>
+    replaceIndex && {
+      backgroundColor: "green",
+    }}
   margin-top: 75%;
   height: ${({ height }) => height}%;
   margin-top: 10%;
