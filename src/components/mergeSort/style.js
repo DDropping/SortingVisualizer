@@ -29,3 +29,11 @@ export const ButtonWrapper = styled.div`
   display: flex;
   justify-content: center;
 `;
+
+export const Title = styled.h1`
+  font-family: Sofia, Helvetica Neue, Helvetica, Roboto, Arial, sans-serif;
+  font-weight: bold;
+  color: #2d2d2dd9;
+  text-align: center;
+  font-size: 50px;
+`;

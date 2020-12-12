@@ -1,7 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { Button } from "antd";
 
-import { Container, ColumnWrapper, Column } from "./style";
+import {
+  Container,
+  ColumnWrapper,
+  Column,
+  ButtonWrapper,
+  Title,
+} from "./style";
 import { insertionHandler } from "../../algorithms/insertionSort";
 
 const Index = ({ array, size, sortSpeed }) => {
@@ -32,7 +38,8 @@ const Index = ({ array, size, sortSpeed }) => {
   };
 
   return (
-    <>
+    <div>
+      <Title>Insertion Sort</Title>
       <Container>
         {displayArray.map((value, index) => {
           let width = 100 / size;
@@ -50,8 +57,21 @@ const Index = ({ array, size, sortSpeed }) => {
           );
         })}
       </Container>
-      <Button onClick={startAnimation}>Sort Array</Button>
-    </>
+      <ButtonWrapper>
+        <Button
+          block
+          type="primary"
+          size="large"
+          style={{
+            maxWidth: "300px",
+            margin: "25px",
+          }}
+          onClick={startAnimation}
+        >
+          Start Sorting
+        </Button>
+      </ButtonWrapper>
+    </div>
   );
 };
 

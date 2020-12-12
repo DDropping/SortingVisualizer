@@ -1,7 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { Button } from "antd";
 
-import { Container, ColumnWrapper, Column, ButtonWrapper } from "./style";
+import {
+  Container,
+  ColumnWrapper,
+  Column,
+  ButtonWrapper,
+  Title,
+} from "./style";
 import { mergeSortHandler } from "../../algorithms/mergeSort";
 
 const Index = ({ array, size, sortSpeed }) => {
@@ -40,6 +46,7 @@ const Index = ({ array, size, sortSpeed }) => {
 
   return (
     <div>
+      <Title>Merge Sort</Title>
       <Container>
         {displayArray.map((value, index) => {
           let width = 100 / size;
