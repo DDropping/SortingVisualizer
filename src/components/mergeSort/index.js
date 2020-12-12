@@ -39,24 +39,25 @@ const Index = ({ array, size, sortSpeed }) => {
   };
 
   return (
-    <Container>
-      {displayArray.map((value, index) => {
-        let width = 100 / size;
-        return (
-          <ColumnWrapper key={index} height={value} width={width}>
-            <div style={{ flex: 1 }} />
-            <Column
-              index={index}
-              height={value}
-              width={width}
-              highlightedIndex={currentIndexes}
-              replaceIndex={replaceIndex === index}
-            />
-          </ColumnWrapper>
-        );
-      })}
-      <Button onClick={startAnimation}>Sort</Button>
-    </Container>
+    <div>
+      <Container>
+        {displayArray.map((value, index) => {
+          let width = 100 / size;
+          return (
+            <ColumnWrapper key={index} height={value} width={width}>
+              <div style={{ flex: 1 }} />
+              <Column
+                index={index}
+                height={value}
+                width={width}
+                highlightedIndex={currentIndexes}
+                replaceIndex={replaceIndex === index}
+              />
+            </ColumnWrapper>
+          );
+        })}
+      </Container>
+    </div>
   );
 };
 
