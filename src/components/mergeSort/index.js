@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Button } from "antd";
 
-import { Container, ColumnWrapper, Column } from "./style";
+import { Container, ColumnWrapper, Column, ButtonWrapper } from "./style";
 import { mergeSortHandler } from "../../algorithms/mergeSort";
 
 const Index = ({ array, size, sortSpeed }) => {
@@ -57,6 +57,20 @@ const Index = ({ array, size, sortSpeed }) => {
           );
         })}
       </Container>
+      <ButtonWrapper>
+        <Button
+          block
+          type="primary"
+          size="large"
+          style={{
+            maxWidth: "300px",
+            margin: "25px",
+          }}
+          onClick={startAnimation}
+        >
+          Start Sorting
+        </Button>
+      </ButtonWrapper>
     </div>
   );
 };

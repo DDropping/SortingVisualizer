@@ -24,3 +24,8 @@ export const Column = styled.div`
   margin-top: 10%;
   margin: 0 1px;
 `;
+
+export const ButtonWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+`;
