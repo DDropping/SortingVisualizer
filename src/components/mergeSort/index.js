@@ -15,8 +15,6 @@ const Index = ({ array, size, sortSpeed }) => {
 
   const startAnimation = async () => {
     const animationsArray = await mergeSortHandler(displayArray);
-    console.log(animationsArray);
-    console.log(displayArray);
     let tempArray = [...displayArray];
     for (let i = 0; i < animationsArray.length; i++) {
       setTimeout(() => {
@@ -34,16 +32,12 @@ const Index = ({ array, size, sortSpeed }) => {
       }, 50 * i);
     }
     setTimeout(() => {
-      console.log(tempArray, "======");
       setDisplayArray(tempArray);
       setCurrentIndexes([]);
       setReplaceIndex(null);
     }, 50 * animationsArray.length + 100);
   };
 
-  //console.log(array);
-  //const [arr, setArr] = useState(array);
-  //const sortAnimations = mergeSortHandler(arr);
   return (
     <Container>
       {displayArray.map((value, index) => {
