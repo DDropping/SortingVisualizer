@@ -18,14 +18,13 @@ export const insertionHandler = (array) => {
       nums[index1] = temp;
       animations.push({
         index1: index1,
-        index2: index2,
+        //index2: index1 - 1,
         swap: true,
         array: [...nums],
       });
       index1--;
       index2--;
     }
-    animations.push({ itemSorted: true, index: index2 });
   }
 
   return animations;

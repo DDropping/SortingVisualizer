@@ -15,6 +15,10 @@ export const ColumnWrapper = styled.div`
 export const Column = styled.div`
   background-color: ${({ highlightedIndex, index }) =>
     highlightedIndex.includes(index) ? "red" : "turquoise"};
+  ${({ isSuccess }) =>
+    isSuccess && {
+      backgroundColor: "green",
+    }}
   margin-top: 75%;
   height: ${({ height }) => height}%;
   margin-top: 10%;

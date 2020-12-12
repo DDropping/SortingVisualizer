@@ -7,6 +7,7 @@ import { insertionHandler } from "../../algorithms/insertionSort";
 const Index = ({ array, size, sortSpeed }) => {
   const [displayArray, setDisplayArray] = useState([...array]);
   const [currentIndexes, setCurrentIndexes] = useState([]);
+  const [successIndex, setSuccessIndex] = useState(null);
   const animationsArray = insertionHandler(displayArray);
 
   useEffect(() => {
@@ -18,11 +19,14 @@ const Index = ({ array, size, sortSpeed }) => {
       setTimeout(() => {
         setCurrentIndexes([
           animationsArray[i].index1,
-          animationsArray[i].index2,
+          //animationsArray[i].index2,
         ]);
         if (animationsArray[i].swap) {
           setDisplayArray(animationsArray[i].array);
         }
+        setSuccessIndex(
+          animationsArray[i].isSuccess ? animationsArray[i].index1 : null
+        );
       }, (1010 - sortSpeed * 10) * i);
     }
   };
@@ -40,6 +44,7 @@ const Index = ({ array, size, sortSpeed }) => {
                 height={value}
                 width={width}
                 highlightedIndex={currentIndexes}
+                isSuccess={successIndex === index}
               />
             </ColumnWrapper>
           );
