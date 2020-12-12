@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { AlignRightOutlined } from "@ant-design/icons";
 
 export const Container = styled.div`
   width: 100%;
@@ -8,6 +9,7 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
   padding: 0 25px;
 `;
 
@@ -29,22 +31,23 @@ export const SortItem = styled.div`
 `;
 
 const index = ({ setCurrentAlgo, currentAlgo }) => {
-  console.log(currentAlgo);
   return (
     <Container>
-      <div>SortVisualizer</div>
+      <div style={{ fontSize: "20px", fontWeight: "bold", color: "#2d2d2dd9" }}>
+        <AlignRightOutlined /> SortVisualizer
+      </div>
       <SortContainer>
-        <SortItem
-          onClick={() => setCurrentAlgo("bubble")}
-          isActive={currentAlgo === "bubble"}
-        >
-          Bubble Sort
-        </SortItem>
         <SortItem
           onClick={() => setCurrentAlgo("insertion")}
           isActive={currentAlgo === "insertion"}
         >
           Insertion Sort
+        </SortItem>
+        <SortItem
+          onClick={() => setCurrentAlgo("bubble")}
+          isActive={currentAlgo === "bubble"}
+        >
+          Bubble Sort
         </SortItem>
         <SortItem
           onClick={() => setCurrentAlgo("merge")}
