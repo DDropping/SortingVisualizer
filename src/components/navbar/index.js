@@ -21,25 +21,43 @@ export const SortItem = styled.div`
   cursor: pointer;
   display: flex;
   align-items: center;
-  border-bottom: 2px solid transparent;
+  border-bottom: ${({ isActive }) =>
+    isActive ? "2px solid #00ad93" : "2px solid transparent"};
   :hover {
     border-bottom: 2px solid #00ad93;
   }
 `;
 
-const index = ({ setCurrentAlgo }) => {
+const index = ({ setCurrentAlgo, currentAlgo }) => {
+  console.log(currentAlgo);
   return (
     <Container>
       <div>SortVisualizer</div>
       <SortContainer>
-        <SortItem onClick={() => setCurrentAlgo("bubble")}>
+        <SortItem
+          onClick={() => setCurrentAlgo("bubble")}
+          isActive={currentAlgo === "bubble"}
+        >
           Bubble Sort
         </SortItem>
-        <SortItem onClick={() => setCurrentAlgo("insertion")}>
+        <SortItem
+          onClick={() => setCurrentAlgo("insertion")}
+          isActive={currentAlgo === "insertion"}
+        >
           Insertion Sort
         </SortItem>
-        <SortItem onClick={() => setCurrentAlgo("merge")}>Merge Sort</SortItem>
-        <SortItem onClick={() => setCurrentAlgo("quick")}>Quick Sort</SortItem>
+        <SortItem
+          onClick={() => setCurrentAlgo("merge")}
+          isActive={currentAlgo === "merge"}
+        >
+          Merge Sort
+        </SortItem>
+        <SortItem
+          onClick={() => setCurrentAlgo("quick")}
+          isActive={currentAlgo === "quick"}
+        >
+          Quick Sort
+        </SortItem>
       </SortContainer>
     </Container>
   );

@@ -36,7 +36,7 @@ const Home = () => {
 
   return (
     <div>
-      <Navbar setCurrentAlgo={setCurrentAlgo} />
+      <Navbar setCurrentAlgo={setCurrentAlgo} currentAlgo={currentAlgo} />
       <Container>
         <SortFilters
           arrayLength={arrayLength}
