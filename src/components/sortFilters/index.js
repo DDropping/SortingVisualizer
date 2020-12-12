@@ -27,7 +27,9 @@ const index = ({
   return (
     <Container>
       <FilterContainer>
-        <Button onClick={resetArray}>Reset Array</Button>
+        <Button size="large" onClick={resetArray}>
+          Reset Array
+        </Button>
       </FilterContainer>
       <FilterContainer>
         <Title>Array Size: {arrayLength} </Title>
