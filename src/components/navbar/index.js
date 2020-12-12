@@ -4,7 +4,7 @@ import { AlignRightOutlined } from "@ant-design/icons";
 
 export const Container = styled.div`
   width: 100%;
-  height: 60px;
+  min-height: 60px;
   background-color: #cafff7;
   display: flex;
   align-items: center;
