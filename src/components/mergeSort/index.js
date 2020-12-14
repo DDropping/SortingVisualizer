@@ -35,13 +35,11 @@ const Index = ({ array, size, sortSpeed }) => {
           setDisplayArray(tempArray);
           setReplaceIndex(animationsArray[i].indexReplaced);
         }
-      }, 50 * i);
+        if (animationsArray[i].indexReplaced === null) {
+          setReplaceIndex(null);
+        }
+      }, (1010 - sortSpeed * 10) * i);
     }
-    setTimeout(() => {
-      setDisplayArray(tempArray);
-      setCurrentIndexes([]);
-      setReplaceIndex(null);
-    }, 50 * animationsArray.length + 100);
   };
 
   return (

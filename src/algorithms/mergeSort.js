@@ -80,4 +80,11 @@ function doMerge(
     });
     mainArray[k++] = auxiliaryArray[j++];
   }
+
+  animations.push({
+    index1: null,
+    index2: null,
+    indexReplaced: null,
+    swap: false,
+  });
 }
