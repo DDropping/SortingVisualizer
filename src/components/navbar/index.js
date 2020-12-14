@@ -50,6 +50,18 @@ const index = ({ setCurrentAlgo, currentAlgo }) => {
           Bubble Sort
         </SortItem>
         <SortItem
+          onClick={() => setCurrentAlgo("selection")}
+          isActive={currentAlgo === "selection"}
+        >
+          Selection Sort
+        </SortItem>
+        <SortItem
+          onClick={() => setCurrentAlgo("heap")}
+          isActive={currentAlgo === "heap"}
+        >
+          Heap Sort
+        </SortItem>
+        <SortItem
           onClick={() => setCurrentAlgo("merge")}
           isActive={currentAlgo === "merge"}
         >

@@ -7,6 +7,8 @@ import MergeSort from "../components/mergeSort";
 import InsertionSort from "../components/insertionSort";
 import BubbleSort from "../components/bubbleSort";
 import QuickSort from "../components/quickSort";
+import SelectionSort from "../components/selectionSort";
+import HeapSort from "../components/heapSort";
 
 export const Container = styled.div`
   max-width: 1200px;
@@ -54,6 +56,16 @@ const Home = () => {
         )}
         {currentAlgo === "merge" && (
           <MergeSort array={array} size={arrayLength} sortSpeed={sortSpeed} />
+        )}
+        {currentAlgo === "selection" && (
+          <SelectionSort
+            array={array}
+            size={arrayLength}
+            sortSpeed={sortSpeed}
+          />
+        )}
+        {currentAlgo === "heap" && (
+          <HeapSort array={array} size={arrayLength} sortSpeed={sortSpeed} />
         )}
         {currentAlgo === "bubble" && (
           <BubbleSort array={array} size={arrayLength} sortSpeed={sortSpeed} />
