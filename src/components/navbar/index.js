@@ -37,30 +37,12 @@ const index = ({ setCurrentAlgo, currentAlgo }) => {
         <AlignRightOutlined /> SortVisualizer
       </div>
       <SortContainer>
-        <SortItem
-          onClick={() => setCurrentAlgo("insertion")}
-          isActive={currentAlgo === "insertion"}
-        >
-          Insertion Sort
-        </SortItem>
-        <SortItem
-          onClick={() => setCurrentAlgo("bubble")}
-          isActive={currentAlgo === "bubble"}
-        >
-          Bubble Sort
-        </SortItem>
-        <SortItem
-          onClick={() => setCurrentAlgo("selection")}
-          isActive={currentAlgo === "selection"}
-        >
-          Selection Sort
-        </SortItem>
-        <SortItem
+        {/* <SortItem
           onClick={() => setCurrentAlgo("heap")}
           isActive={currentAlgo === "heap"}
         >
           Heap Sort
-        </SortItem>
+        </SortItem> */}
         <SortItem
           onClick={() => setCurrentAlgo("merge")}
           isActive={currentAlgo === "merge"}
@@ -72,6 +54,24 @@ const index = ({ setCurrentAlgo, currentAlgo }) => {
           isActive={currentAlgo === "quick"}
         >
           Quick Sort
+        </SortItem>
+        <SortItem
+          onClick={() => setCurrentAlgo("selection")}
+          isActive={currentAlgo === "selection"}
+        >
+          Selection Sort
+        </SortItem>
+        <SortItem
+          onClick={() => setCurrentAlgo("insertion")}
+          isActive={currentAlgo === "insertion"}
+        >
+          Insertion Sort
+        </SortItem>
+        <SortItem
+          onClick={() => setCurrentAlgo("bubble")}
+          isActive={currentAlgo === "bubble"}
+        >
+          Bubble Sort
         </SortItem>
       </SortContainer>
     </Container>
