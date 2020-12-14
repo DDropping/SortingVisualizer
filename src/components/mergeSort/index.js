@@ -14,6 +14,8 @@ const Index = ({ array, size, sortSpeed }) => {
   const [displayArray, setDisplayArray] = useState([...array]);
   const [currentIndexes, setCurrentIndexes] = useState([]);
   const [replaceIndex, setReplaceIndex] = useState();
+  const [eventsArray, setEventsArray] = useState([]);
+  const [isSorting, setIsSorting] = useState(false);
 
   useEffect(() => {
     setDisplayArray(array);
@@ -22,24 +24,39 @@ const Index = ({ array, size, sortSpeed }) => {
   const startAnimation = async () => {
     const animationsArray = await mergeSortHandler(displayArray);
     let tempArray = [...displayArray];
+    let animationEvents = [];
+    setIsSorting(true);
     for (let i = 0; i < animationsArray.length; i++) {
-      setTimeout(() => {
-        setCurrentIndexes([
-          animationsArray[i].index1,
-          animationsArray[i].index2,
-        ]);
-        if (animationsArray[i].swap === true) {
-          let index = animationsArray[i].payload[0];
-          let value = animationsArray[i].payload[1];
-          tempArray[index] = value;
-          setDisplayArray(tempArray);
-          setReplaceIndex(animationsArray[i].indexReplaced);
-        }
-        if (animationsArray[i].indexReplaced === null) {
-          setReplaceIndex(null);
-        }
-      }, (1010 - sortSpeed * 10) * i);
+      animationEvents.push(
+        setTimeout(() => {
+          setCurrentIndexes([
+            animationsArray[i].index1,
+            animationsArray[i].index2,
+          ]);
+          if (animationsArray[i].swap === true) {
+            let index = animationsArray[i].payload[0];
+            let value = animationsArray[i].payload[1];
+            tempArray[index] = value;
+            setDisplayArray(tempArray);
+            setReplaceIndex(animationsArray[i].indexReplaced);
+          }
+          if (animationsArray[i].indexReplaced === null) {
+            setReplaceIndex(null);
+          }
+          if (i === animationsArray.length - 1) {
+            setIsSorting(false);
+          }
+        }, (1010 - sortSpeed * 10) * i)
+      );
     }
+    setEventsArray(animationEvents);
+  };
+
+  const stopAnimation = () => {
+    for (let i = 0; i < eventsArray.length; i++) {
+      clearTimeout(eventsArray[i]);
+    }
+    setIsSorting(false);
   };
 
   return (
@@ -71,9 +88,9 @@ const Index = ({ array, size, sortSpeed }) => {
             maxWidth: "300px",
             margin: "25px",
           }}
-          onClick={startAnimation}
+          onClick={isSorting ? stopAnimation : startAnimation}
         >
-          Start Sorting
+          {isSorting ? "Stop Animation" : " Start Sorting"}
         </Button>
       </ButtonWrapper>
     </div>

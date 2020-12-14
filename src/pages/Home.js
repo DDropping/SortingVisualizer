@@ -17,9 +17,9 @@ export const Container = styled.div`
 `;
 
 const Home = () => {
-  const [currentAlgo, setCurrentAlgo] = useState("insertion");
-  const [arrayLength, setArrayLength] = useState(10);
-  const [sortSpeed, setSortSpeed] = useState(50);
+  const [currentAlgo, setCurrentAlgo] = useState("merge");
+  const [arrayLength, setArrayLength] = useState(75);
+  const [sortSpeed, setSortSpeed] = useState(100);
   const [array, setArray] = useState([]);
 
   const resetArray = () => {
@@ -33,7 +33,12 @@ const Home = () => {
 
   //reset and populate array on inital render
   useEffect(() => {
-    resetArray();
+    setArray([]);
+    let tempArr = [];
+    for (let i = 0; i < arrayLength; i++) {
+      tempArr.push(Math.floor(Math.random() * (100 - 5 + 1) + 5));
+    }
+    setArray(tempArr);
   }, [arrayLength]);
 
   return (

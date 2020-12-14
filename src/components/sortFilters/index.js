@@ -35,7 +35,7 @@ const index = ({
       <FilterContainer>
         <Title>Array Size: {arrayLength} </Title>
         <Slider
-          defaultValue={50}
+          defaultValue={75}
           min={5}
           max={100}
           onChange={(value) => setArrayLength(value)}
@@ -45,7 +45,7 @@ const index = ({
       <FilterContainer>
         <Title>Sort Speed: {sortSpeed} </Title>
         <Slider
-          defaultValue={50}
+          defaultValue={100}
           min={5}
           max={100}
           onChange={(value) => setSortSpeed(value)}
