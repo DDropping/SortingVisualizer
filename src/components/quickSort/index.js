@@ -15,21 +15,41 @@ const Index = ({ array, size, sortSpeed }) => {
   const [currentIndexes, setCurrentIndexes] = useState([]);
   const [pivotIndex, setPivotIndex] = useState(null);
   const animationsArray = quickSortHandler(displayArray);
+  const [eventsArray, setEventsArray] = useState([]);
+  const [isSorting, setIsSorting] = useState(false);
 
   useEffect(() => {
     setDisplayArray(array);
   }, [array]);
 
   const startAnimation = () => {
+    setIsSorting(true);
+    let animationEvents = [];
     for (let i = 0; i < animationsArray.length; i++) {
-      setTimeout(() => {
-        setCurrentIndexes([animationsArray[i].left, animationsArray[i].right]);
-        setPivotIndex(animationsArray[i].pivot);
-        if (animationsArray[i].swap) {
-          setDisplayArray(animationsArray[i].array);
-        }
-      }, (1010 - sortSpeed * 10) * i);
+      animationEvents.push(
+        setTimeout(() => {
+          setCurrentIndexes([
+            animationsArray[i].left,
+            animationsArray[i].right,
+          ]);
+          setPivotIndex(animationsArray[i].pivot);
+          if (animationsArray[i].swap) {
+            setDisplayArray(animationsArray[i].array);
+          }
+          if (i === animationsArray.length - 1) {
+            setIsSorting(false);
+          }
+        }, (1010 - sortSpeed * 10) * i)
+      );
     }
+    setEventsArray(animationEvents);
+  };
+
+  const stopAnimation = () => {
+    for (let i = 0; i < eventsArray.length; i++) {
+      clearTimeout(eventsArray[i]);
+    }
+    setIsSorting(false);
   };
 
   return (
@@ -61,9 +81,9 @@ const Index = ({ array, size, sortSpeed }) => {
             maxWidth: "300px",
             margin: "25px",
           }}
-          onClick={startAnimation}
+          onClick={isSorting ? stopAnimation : startAnimation}
         >
-          Start Sorting
+          {isSorting ? "Stop Animation" : " Start Sorting"}
         </Button>
       </ButtonWrapper>
     </div>
