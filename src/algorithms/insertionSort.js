@@ -6,8 +6,8 @@ export const insertionHandler = (array) => {
     let index2 = i;
     let index1 = i - 1;
     animations.push({
-      index1: index1,
-      index2: index2,
+      index1: index2,
+      index2: index1,
       swap: false,
       itemSorted: false,
     });
@@ -18,13 +18,18 @@ export const insertionHandler = (array) => {
       nums[index1] = temp;
       animations.push({
         index1: index1,
-        //index2: index1 - 1,
         swap: true,
         array: [...nums],
       });
       index1--;
       index2--;
     }
+
+    animations.push({
+      index1: null,
+      index2: null,
+      swap: false,
+    });
   }
 
   return animations;

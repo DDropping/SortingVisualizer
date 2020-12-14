@@ -53,13 +53,13 @@ const Home = () => {
           />
         )}
         {currentAlgo === "merge" && (
-          <MergeSort array={array} size={arrayLength} />
+          <MergeSort array={array} size={arrayLength} sortSpeed={sortSpeed} />
         )}
         {currentAlgo === "bubble" && (
-          <BubbleSort array={array} size={arrayLength} />
+          <BubbleSort array={array} size={arrayLength} sortSpeed={sortSpeed} />
         )}
         {currentAlgo === "quick" && (
-          <QuickSort array={array} size={arrayLength} />
+          <QuickSort array={array} size={arrayLength} sortSpeed={sortSpeed} />
         )}
       </Container>
     </div>
