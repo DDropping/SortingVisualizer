@@ -20,8 +20,6 @@ const Index = ({ array, size, sortSpeed }) => {
     setDisplayArray(array);
   }, [array]);
 
-  console.log("sortSpeed: ", sortSpeed);
-
   const startAnimation = () => {
     for (let i = 0; i < animationsArray.length; i++) {
       setTimeout(() => {
@@ -38,8 +36,6 @@ const Index = ({ array, size, sortSpeed }) => {
       }, (1010 - sortSpeed * 10) * i);
     }
   };
-
-  console.log(animationsArray);
 
   return (
     <div>
