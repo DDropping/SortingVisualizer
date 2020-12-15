@@ -42,7 +42,7 @@ const Index = ({ array, size, sortSpeed }) => {
           if (i === animationsArray.length - 1) {
             setIsSorting(false);
           }
-        }, (1010 - sortSpeed * 10) * i)
+        }, (510 - sortSpeed * 5) * i)
       );
     }
     setEventsArray(animationEvents);
