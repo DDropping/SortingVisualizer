@@ -99,7 +99,7 @@ const CodeBlock = () => {
         <br />
         <br />
       </div>
-      <div style={{ minWidth: "500px" }}>
+      <div style={{ width: "500px" }}>
         <CopyBlock
           language="javascript"
           text={code}
