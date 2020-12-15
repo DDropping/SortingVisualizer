@@ -55,7 +55,7 @@ const Index = ({ array, size, sortSpeed }) => {
 
   return (
     <div>
-      <Title>Qucik Sort</Title>
+      <Title>Quick Sort</Title>
       <Container>
         {displayArray.map((value, index) => {
           let width = 100 / size;
