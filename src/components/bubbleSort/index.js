@@ -77,7 +77,7 @@ const Index = ({ array, size, sortSpeed }) => {
       <ButtonWrapper>
         <Button
           block
-          type="primary"
+          type={isSorting ? "danger" : "primary"}
           size="large"
           style={{
             maxWidth: "300px",
