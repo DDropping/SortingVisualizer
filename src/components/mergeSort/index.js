@@ -9,7 +9,8 @@ import {
   Title,
 } from "./style";
 import { mergeSortHandler } from "../../algorithms/mergeSort";
-
+import CodeBlock from "./CodeBlock";
+import { Code } from "react-code-blocks";
 const Index = ({ array, size, sortSpeed }) => {
   const [displayArray, setDisplayArray] = useState([...array]);
   const [currentIndexes, setCurrentIndexes] = useState([]);
@@ -93,6 +94,9 @@ const Index = ({ array, size, sortSpeed }) => {
           {isSorting ? "Stop Animation" : " Start Sorting"}
         </Button>
       </ButtonWrapper>
+      <div>
+        <CodeBlock />
+      </div>
     </div>
   );
 };
