@@ -21,10 +21,11 @@ const Text = styled.div`
 const CodeBlock = () => {
   let code = `// Javascript
   const selectionSort = (array) => { 
-      // Find the smallest number in the subarray        
-    for(let i = 0; i < array.length; i++) {
+    let len = array.length
+    // Find the smallest number       
+    for(let i = 0; i < len; i++) {
         let min = i;
-        for(let j = i+1; j < array.length; j++){
+        for(let j = i+1; j < len; j++){
             if(array[j] < array[min]) {
                 min=j; 
             }

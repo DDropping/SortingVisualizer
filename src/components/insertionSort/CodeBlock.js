@@ -25,7 +25,8 @@ const CodeBlock = () => {
     for (let i = 1; i < array.length; i++) {
         let key = array[i];
         let j = i - 1;
-        //swap elements until the original element is in its final position
+        //swap elements until the original 
+        //element is in its final position
         while (j >= 0 && array[j] > key) {
             array[j + 1] = array[j];
             j = j - 1;

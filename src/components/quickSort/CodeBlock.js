@@ -20,14 +20,16 @@ const Text = styled.div`
 
 const CodeBlock = () => {
   let code = `// Javascript
-  const swap = (items, leftIndex, rightIndex) => {
-    var temp = items[leftIndex];
-    items[leftIndex] = items[rightIndex];
-    items[rightIndex] = temp;
+  const swap = (items, left, right) => {
+    var temp = items[left];
+    items[left] = items[right];
+    items[right] = temp;
   }
 
   const partition = (items, left, right) => {
-    let pivot = items[Math.floor((right + left) / 2)];
+    let pivot = items[
+      Math.floor((right + left) / 2)
+    ];
     let i = left, 
     let j = right; 
     while (i <= j) {
