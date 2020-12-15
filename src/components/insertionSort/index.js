@@ -9,6 +9,7 @@ import {
   Title,
 } from "./style";
 import { insertionHandler } from "../../algorithms/insertionSort";
+import CodeBlock from "./CodeBlock";
 
 const Index = ({ array, size, sortSpeed }) => {
   const [displayArray, setDisplayArray] = useState([...array]);
@@ -77,7 +78,7 @@ const Index = ({ array, size, sortSpeed }) => {
       <ButtonWrapper>
         <Button
           block
-          type="primary"
+          type={isSorting ? "danger" : "primary"}
           size="large"
           style={{
             maxWidth: "300px",
@@ -88,6 +89,11 @@ const Index = ({ array, size, sortSpeed }) => {
           {isSorting ? "Stop Animation" : " Start Sorting"}
         </Button>
       </ButtonWrapper>
+      <br />
+      <br />
+      <div>
+        <CodeBlock />
+      </div>
     </div>
   );
 };

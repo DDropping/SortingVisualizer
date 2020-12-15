@@ -20,43 +20,43 @@ const Text = styled.div`
 
 const CodeBlock = () => {
   let code = `// Javascript
-    const mergeSort = (arr) => {
-        if (arr.length <= 1) return arr;
-        let mid = Math.floor(arr.length / 2),
-            left = mergeSort(arr.slice(0, mid)),
-            right = mergeSort(arr.slice(mid));
-        return merge(left, right);
-    };
-
-    const merge = (arr1, arr2) => {
-        let sorted = [];
-        while (arr1.length && arr2.length) {
-        if (arr1[0] < arr2[0]) sorted.push(arr1.shift());
-        else sorted.push(arr2.shift());
-        };
-        return sorted.concat(arr1.slice().concat(arr2.slice()));
-    };
+  const insertionSort = (array) => {
+    //for each element in the array
+    for (let i = 1; i < array.length; i++) {
+        let key = array[i];
+        let j = i - 1;
+        //swap elements until the original element is in its final position
+        while (j >= 0 && array[j] > key) {
+            array[j + 1] = array[j];
+            j = j - 1;
+        }
+        array[j + 1] = key;
+    }
+    return array;
+  };
     `;
   return (
     <Contianer>
       <div style={{ maxWidth: "400px" }}>
         <Header>Time Complexity:</Header>
-        <Text>Average: O(nLogn)</Text>
-        <Text>Worst: O(nLogn)</Text>
-        <Text>Best: O(nLogn)</Text>
+        <Text>
+          Average: O(n<sup>2</sup>)
+        </Text>
+        <Text>
+          Worst: O(n<sup>2</sup>)
+        </Text>
+        <Text>Best: O(n)</Text>
         <br />
         <Header>Space Analysis:</Header>
         <Text>
-          Depending on the implementation, merge sort typically uses O(n) space,
-          but can be reduced to O(1) with methods such as an auxiliary lined
-          list.
+          Insertion sort is generally an in-place sorting algorithm so it
+          requires no extra storage.
         </Text>
         <br />
         <Header>Psudocode:</Header>
-        <Text>Find the middle point of the array</Text>
-        <Text>Call mergeSort on the first half</Text>
-        <Text>Call mergeSort on the second half</Text>
-        <Text>Merge the two halves togeather</Text>
+        <Text>- For each element in the array</Text>
+        <Text>- If the element to the left is larger, swap the elements</Text>
+        <Text>- Repeat until array is sorted</Text>
         <br />
         <br />
       </div>

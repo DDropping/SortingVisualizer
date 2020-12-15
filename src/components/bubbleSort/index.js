@@ -9,6 +9,7 @@ import {
   Title,
 } from "./style";
 import { bubbleHandler } from "../../algorithms/bubbleSort";
+import CodeBlock from "./CodeBlock";
 
 const Index = ({ array, size, sortSpeed }) => {
   const [displayArray, setDisplayArray] = useState([...array]);
@@ -88,6 +89,11 @@ const Index = ({ array, size, sortSpeed }) => {
           {isSorting ? "Stop Animation" : " Start Sorting"}
         </Button>
       </ButtonWrapper>
+      <br />
+      <br />
+      <div>
+        <CodeBlock />
+      </div>
     </div>
   );
 };
